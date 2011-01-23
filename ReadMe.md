@@ -2,7 +2,7 @@
 
 ## ONLINE DEMO
 
-  [http://bugger.nodeapps.com](http://bugger.nodeapps.com)
+  coming soon...
 
 ## INSTALLATION
 
