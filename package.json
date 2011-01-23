@@ -10,7 +10,6 @@
   "dependencies": {
     "request": ">= 0.10.0",
     "node-static": ">= 0.5.3",
-    "resourcer":">= 0.1.0-pre",
     "stack":">= 0.0.3"
   },
   "main": "./lib/bugger",
