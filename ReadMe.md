@@ -2,11 +2,11 @@
 
 ## ONLINE DEMO
 
-  coming soon...
+  [http://bugger.nodejitsu.com/](http://bugger.nodejitsu.com/)
 
 ## INSTALLATION
 
-     npm install stack webservice node-static resourcer
+     npm install stack webservice node-static
    
      git clone git://github.com/Marak/bugger.git
    
