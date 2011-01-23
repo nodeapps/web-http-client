@@ -1,0 +1,8 @@
+var ws = require('webservice'),
+    bugger = require('../bugger');
+
+module.exports = function setup() {
+  return ws.createHandler(bugger, {
+    bindroot:false
+  });
+};

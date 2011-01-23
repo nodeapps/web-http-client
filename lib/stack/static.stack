@@ -1,0 +1,10 @@
+var static = require('node-static'), 
+    file = new(static.Server)('./public');
+
+module.exports = function setup(some, args) {
+  // Do server set up stuff here
+  return function handle(req, res, next) {
+    // Handle a single request here
+    file.serve(req, res, next);
+  };
+};
