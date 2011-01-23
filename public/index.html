@@ -1,16 +1,20 @@
-<h1>bugger - super simple http request debugging tool</h1>
+<h1>bugger - open-source http client</h1>
 
-<h2>Check out the <a href="/docs">API</a></h2>
 <script type="text/javascript" src = "./js/jquery.js"></script>
 <script type="text/javascript" src="./js/jquery.textbox.js"></script>
+<script type="text/javascript" src="./js/bugger.jquery.js"></script>
 
 <style type="text/css">
     @import "./css/jquery.textbox.css";
+    @import "./css/styles.css";
+    
 </style>
           
 <script type="text/javascript">
     $(function()
     {
+      
+        /*
         $("input.tb").textbox(
         {
             items    : [],
@@ -22,41 +26,171 @@
             {
                 //alert("Selected : " + item);
             }
+        });*/
+        
+        
+        // for sending a bugger request
+        $("#send").click(function(){
+          
+          // uri can't be blank
+          if(!$('.dropdown').val().length){
+            alert('uri cannot be blank');
+            return;
+          }
+          
+          $('.loader').show();
+          
+          //$("input.dropdown").textbox("add",$('.textbox').val());
+          bugger.request({
+            uri:$('.dropdown').val(),
+            verb:$('#verb').val(),
+            headers: JSON.stringify(serializeHeaders()),
+            body: $('.body textarea').val()
+          }, function(err, result){
+
+            $('.loader').hide();
+            
+            if(result=="Could not connect"){
+              alert('Could not connect');
+              return;
+            }
+            
+            $('#Response textarea').val(result);
+            $('.result div').hide();
+            $('#Response').show();
+          });
+          return false;
         });
         
         
-        $("#send").click(function()
-        {
-            $("input.tb").textbox("add",$('.textbox').val());
-            return false;
+        // for toggling between request / response tabs
+        $('.toggleResult').click(function(){
+          $('.result div').hide();
+          $('#' + $(this).val()).show();
         });
+        
+        // for toggling the visibility of the request body
+        $('.toggleBody').click(function(){
+          if($('.body textarea').css('display') == "none"){
+            $('.body textarea').slideDown();
+          }
+          else{
+            $('.body textarea').slideUp();
+          }
+        });
+        
+        // for adding / removing headers rows
+        $('.headersButtons input').click(function(){
+          if($(this).val() == "+"){
+            createHeaderRow();
+          }
+          else{
+            removeHeaderRow();
+          }
+        });
+        
+        // create a new headers row with option box and text input
+        createHeaderRow();
+        
+        
     });
+    
+    function createHeaderRow(){
+      $('.headers table').append('<tr>\
+        <td>\
+          <select class="header_name">\
+          </select>\
+        </td>\
+        <td>\
+          <input class="header_value">\
+        </td>\
+      </tr>\
+      ');
+      // populate the headers drop down
+      for(var i = 0; i<bugger.headers.length; i++){
+        $('.header_name').append('<option value="'+bugger.headers[i]+'">'+ bugger.headers[i] +'</option>');
+      }
+    }
+    
+    // TODO: make it so only active rows are removed, not just the last one
+    function removeHeaderRow(){
+      if($('.headers table tr').length > 1){
+        $('.headers table tr:last').remove();
+      }
+    }
+    
+    // for converting headers form into JSON
+    function serializeHeaders(){
+      var json = {};
+      
+      $('.headers table tr').each(function(i,v){
+        if($('.header_name', v).val()){
+          json[$('.header_name', v).val()] = $('.header_value', v).val();
+        }
+      });
+
+      return json;
+    }
 </script>
 
+<body>
+    <div class="window">
+      <form>
+      <table width="100%">
+        <tr>
+          <td align="right">URL:</td>
+          <td colspan="2"><input type="text" class="dropdown"></td>
+        </tr>
+        <tr>
+          <td align="right">Method:</td>
+          <td>
+            <select id="verb">
+              <option value="GET">GET</option>
+              <option value="POST">POST</option>
+              <option value="PUT">PUT</option>
+              <option value="DELETE">DELETE</option>
+            </select>
+            <input type="checkbox"> Follow Redirects</td>
+          <td align="right">
+            <img src="./img/loader.gif" class="loader"/>
+            <input id="send" name="send" value="Send" type="button"/>
+          </td>
+        </tr>
+      </table>
 
-<div class="window">
-  <table>
-    <tr>
-      <td>URL:</td>
-      <td colspan="2"><input type="text" class="tb"></td>
-    </tr>
-    <tr>
-      <td>Method:</td>
-      <td><select><input type="checkbox"> Follow Redirects</td>
-      <td><input id="send" name="send" value="Send" type="button"/></td>
-    </tr>
-  </table>
+      <div class="headers">
+        <table border="1">
+          <tr>
+            <td>Header Name</td>
+            <td>Header Value</td>
+          </tr>
+        </table>
+    
+      </div>
+  
+      <div class="body">
+        <span class="toggleBody"><img src="./img/arrow_down.png"/>Body: </span>
+        <span class="headersButtons">
+        <input type="button" value="+"/><input type="button" value="-"/>
+        </span>
+        
+        <br/>
+        <textarea></textarea>
+      </div>
+  
+      <input class="toggleResult" value="Request" type="button"><input  class="toggleResult" value="Response" type="button">
+  
+      <div class="result">
+        <div id="Request">
+          <textarea>request view</textarea>
+        </div>
+        <div id="Response">
+          <textarea>response view</textarea>
+        </div>
+      </div>
+      </form>
+    </div>
 
-  <div class="headers">
-  </div>
-  
-  <div class="body">
-  </div>
-  <div class="result">
-    <div class="request">
-    </div>
-    <div class="response">
-    </div>
-  </div>
-  
 </div>
+<h2>Check out the <a href="/docs">API</a></h2>
+<h4>Special thanks to Todd Ditchendorf for creating <a href="http://ditchnet.org/httpclient/">HTTP Client</a>, a native Mac OS application for making HTTP requests.  </h4>

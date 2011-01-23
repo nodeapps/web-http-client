@@ -1,3 +1,5 @@
+// static middle-ware
+
 var static = require('node-static'), 
     file = new(static.Server)('./public');
 
