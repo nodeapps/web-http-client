@@ -1,11 +1,9 @@
-<h1>bugger - open-source http client</h1>
+<h1>bugger - open-source web based http client</h1>
 
 <script type="text/javascript" src = "./js/jquery.js"></script>
-<script type="text/javascript" src="./js/jquery.textbox.js"></script>
 <script type="text/javascript" src="./js/bugger.jquery.js"></script>
 
 <style type="text/css">
-    @import "./css/jquery.textbox.css";
     @import "./css/styles.css";
     
 </style>
@@ -14,20 +12,9 @@
     $(function()
     {
       
-        /*
-        $("input.tb").textbox(
-        {
-            items    : [],
-            onChange : function(item)
-            {
-                //alert("Changed : " + item);
-            },
-            onSelect : function(item)
-            {
-                //alert("Selected : " + item);
-            }
-        });*/
-        
+      
+        // update the UI for browsers which cache certain settings
+        $('input').removeAttr('disabled');
         
         // for sending a bugger request
         $("#send").click(function(){
@@ -38,17 +25,26 @@
             return;
           }
           
+          
           $('.loader').show();
           $('#send').attr('disabled', 'disabled');
           
-          //$("input.dropdown").textbox("add",$('.textbox').val());
-          bugger.request({
+          var requestOptions = {
             uri:$('.dropdown').val(),
             verb:$('#verb').val(),
             headers: JSON.stringify(serializeHeaders()),
             followRedirects: $('#followRedirects').val(),
             body: $('.body textarea').val()
-          }, function(err, result){
+          };
+          
+          try{
+            $('#Request textarea').val(mockRequest(requestOptions));
+          }
+          catch(err){
+            console.log(err);
+          }
+          //$("input.dropdown").textbox("add",$('.textbox').val());
+          bugger.request(requestOptions, function(err, result){
 
             $('.loader').hide();
             $('#send').removeAttr('disabled');
@@ -68,6 +64,10 @@
         
         // for toggling between request / response tabs
         $('.toggleResult').click(function(){
+          
+          $('.toggleResult').css('background-color', '#EEEEEE');
+          $(this).css('background-color', '#81BEF7');
+          
           $('.result div').hide();
           $('#' + $(this).val()).show();
         });
@@ -137,14 +137,40 @@
 
       return json;
     }
+    
+    // for mocking up what the outgoing request will look like
+    function mockRequest(options){
+      
+      var re = '';
+      
+      re += (options.verb + ' ' + getPath(options.uri) + ' HTTP/1.1' + '\n');
+      
+      for(var header in JSON.parse(options.headers)){
+        if(header.length){
+          re += (header + ': ' + (options.headers[header] || "''") + '\n');
+        }
+      }
+      
+      re += '\n';
+      re += options.body;
+
+      return re;
+      
+    }
+    
+    // returns path of a uri, nice jQuery cheat
+    function getPath(url) {
+        return $('<a/>').attr('href',url)[0].pathname.replace(/^[^\/]/,'/');
+    }
+    
 </script>
 
 <body>
     <div class="window">
       <form>
-      <table width="100%">
+      <table width="100%" id="top">
         <tr>
-          <td align="right">URL:</td>
+          <td width="20"align="right">URL:</td>
           <td colspan="2"><input type="text" class="dropdown"></td>
         </tr>
         <tr>
@@ -183,15 +209,16 @@
         <br/>
         <textarea></textarea>
       </div>
-  
-      <input class="toggleResult" value="Request" type="button"><input  class="toggleResult" value="Response" type="button">
+      <span class="switcher">
+        <input class="toggleResult active" value="Request" type="button"><input  class="toggleResult" value="Response" type="button">
+      </span>
   
       <div class="result">
         <div id="Request">
-          <textarea>request view</textarea>
+          <textarea></textarea>
         </div>
         <div id="Response">
-          <textarea>response view</textarea>
+          <textarea></textarea>
         </div>
       </div>
       </form>
@@ -199,4 +226,7 @@
 
 </div>
 <h2>Check out the <a href="/docs">API</a></h2>
-<h4>Special thanks to Todd Ditchendorf for creating <a href="http://ditchnet.org/httpclient/">HTTP Client</a>, a native Mac OS application for making HTTP requests.  </h4>
+<h4>Special thanks to Todd Ditchendorf for creating <a href="http://ditchnet.org/httpclient/" target="_blank">HTTP Client</a>, a native Mac OS application for making HTTP requests.  </h4>
+
+
+<a href="http://github.com/marak/bugger"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://assets0.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf?repo=&url=http%3A%2F%2Fs3.amazonaws.com%2Fgithub%2Fribbons%2Fforkme_right_red_aa0000.png&path=" alt="Fork me on GitHub"></a>
