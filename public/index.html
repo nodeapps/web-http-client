@@ -39,22 +39,25 @@
           }
           
           $('.loader').show();
+          $('#send').attr('disabled', 'disabled');
           
           //$("input.dropdown").textbox("add",$('.textbox').val());
           bugger.request({
             uri:$('.dropdown').val(),
             verb:$('#verb').val(),
             headers: JSON.stringify(serializeHeaders()),
+            followRedirects: $('#followRedirects').val(),
             body: $('.body textarea').val()
           }, function(err, result){
 
             $('.loader').hide();
+            $('#send').removeAttr('disabled');
             
             if(result=="Could not connect"){
               alert('Could not connect');
               return;
             }
-            
+
             $('#Response textarea').val(result);
             $('.result div').hide();
             $('#Response').show();
@@ -89,7 +92,9 @@
           }
         });
         
-        // create a new headers row with option box and text input
+        // create three new headers row with option box and text input
+        createHeaderRow();
+        createHeaderRow();
         createHeaderRow();
         
         
@@ -99,6 +104,7 @@
       $('.headers table').append('<tr>\
         <td>\
           <select class="header_name">\
+            <option value=""></option>\
           </select>\
         </td>\
         <td>\
@@ -150,7 +156,7 @@
               <option value="PUT">PUT</option>
               <option value="DELETE">DELETE</option>
             </select>
-            <input type="checkbox"> Follow Redirects</td>
+            <input name="followRedirects" id="followRedirects" type="checkbox"> Follow Redirects</td>
           <td align="right">
             <img src="./img/loader.gif" class="loader"/>
             <input id="send" name="send" value="Send" type="button"/>
