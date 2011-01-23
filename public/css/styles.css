@@ -1,0 +1,109 @@
+textarea{
+  width: 560px;
+  height:200px;
+  background-color:black;
+  color:white;
+}
+
+a { color:#0000FF;}
+a.visited{ color:#0000FF;}
+
+body{
+  text-align: center;
+}
+
+#top{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.frame{
+  width:100%;
+  text-align:center;
+}
+
+.window{
+  background-color: #EEEEEE;
+  width: 600px;
+  margin: 0px auto;
+  text-align: left;
+  padding-top: 20px;
+  position:relative;
+}
+
+.dropdown{
+  width: 100%;
+}
+
+.loader {
+  display:none;
+  bottom: -5px;
+  position: relative;
+  right: 5px;
+}
+
+
+.body{
+  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-top: 10px;
+  position: relative;
+}
+
+.body textarea{
+  display:none;
+  background-color: black;
+  color: white;
+  height: 200px;
+  width: 560px;
+  
+}
+
+.headers table{
+  width:100%;
+}
+
+.header_name{
+  width:100%;
+}
+
+.header_value{
+  width:100%;
+}
+
+.headersButtons{
+  position:absolute;
+  right: 20px;
+}
+
+.toggleBody{
+  cursor:pointer;
+}
+
+.toggleResult{
+  background-color: #EEEEEE;
+  bottom: 15px;
+  position: relative;
+}
+
+.switcher{
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+.result{
+  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-top: 10px;
+  position: relative;
+}
+
+#Response {
+  display:none;
+}
+
+.active{
+  background-color:#81BEF7;
+}
+
