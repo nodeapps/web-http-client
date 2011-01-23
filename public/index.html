@@ -1,21 +1,62 @@
 <h1>bugger - super simple http request debugging tool</h1>
 
 <h2>Check out the <a href="/docs">API</a></h2>
+<script type="text/javascript" src = "./js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.textbox.js"></script>
 
+<style type="text/css">
+    @import "./css/jquery.textbox.css";
+</style>
+          
+<script type="text/javascript">
+    $(function()
+    {
+        $("input.tb").textbox(
+        {
+            items    : [],
+            onChange : function(item)
+            {
+                //alert("Changed : " + item);
+            },
+            onSelect : function(item)
+            {
+                //alert("Selected : " + item);
+            }
+        });
+        
+        
+        $("#send").click(function()
+        {
+            $("input.tb").textbox("add",$('.textbox').val());
+            return false;
+        });
+    });
+</script>
 
 
 <div class="window">
   <table>
     <tr>
       <td>URL:</td>
-      <td colspan="2"><input></td>
-      
+      <td colspan="2"><input type="text" class="tb"></td>
     </tr>
     <tr>
       <td>Method:</td>
       <td><select><input type="checkbox"> Follow Redirects</td>
-      <td><input value="Send"/></td>
+      <td><input id="send" name="send" value="Send" type="button"/></td>
     </tr>
-
   </table>
+
+  <div class="headers">
+  </div>
+  
+  <div class="body">
+  </div>
+  <div class="result">
+    <div class="request">
+    </div>
+    <div class="response">
+    </div>
+  </div>
+  
 </div>

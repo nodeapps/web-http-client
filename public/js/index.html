@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+        <title>JQuery.TextBox</title>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+        <script type="text/javascript" src="jquery.textbox.js"></script>
+
+        <style type="text/css">
+        
+            @import "jquery.textbox.css";
+            
+            *
+            { 
+                margin:         0px;
+                padding:        0px;
+                font:           11px sans-serif;
+            }
+    
+            ul.project
+            { 
+                margin-left:    30px;
+            }
+
+            h1
+            { 
+                font:           24px sans-serif;
+            }
+
+            h2
+            {
+                margin-top:     30px;
+                font:           bold 16px sans-serif;
+            } 
+
+            hr
+            { 
+                margin-bottom:  4px;
+            }
+
+            p
+            {
+                margin:         10px 0px;
+            }
+
+            #container
+            { 
+                padding:        20px;
+                background:     #FFF;
+                width:          600px;
+                margin:         0px auto;
+            }
+            
+            #one
+            {
+                margin-right:    10px;
+            }
+
+        </style>
+
+        <script type="text/javascript">
+            $(function()
+            {
+                $("input.tb").textbox(
+                {
+                    items    : ["item1","item2"],
+                    onChange : function(item)
+                    {
+                        alert("Changed : " + item);
+                    },
+                    onSelect : function(item)
+                    {
+                        alert("Selected : " + item);
+                    }
+                });
+                
+                $("input.tb").textbox("add","appended item");
+                
+                $("#add").click(function()
+                {
+                    $("input.tb").textbox("add","another item");
+                    return false;
+                });
+            });
+        </script>
+
+    </head>
+
+    <body>
+
+        <div id="container">
+         
+            <h1>JQuery.TextBox</h1>
+            <hr />
+            
+            <h2>Introduction</h2>
+            <p>Combining a text input with a drop down select box</p>
+            
+            <h2>Project</h2>
+            <ul class="project">
+                <li><p>Google Code: <a href="http://code.google.com/p/jquerytextbox/">
+                    http://code.google.com/p/jquerytextbox/</a></p></li>
+                <li><p>Author: Dale Harvey (harveyd@gmail.com)</p></li>
+                <li><p>Tested Browsers: Firefox 2/3, IE 7/8, Epiphony 2, 
+                    Opera 9, Safari 3</p></li>
+                <li><p>Notes : Uses absolute positioning, if something causes the input
+                   element to move <code>$(window).resize();</code> will trigger
+                   the repositioning</p></li>
+            </ul>
+                    
+            <h2>Example</h2><br />
+            <p><input type="text" class="tb"> - <a id="add" href="#">click here to add a new Item</a></p>
+
+            <pre>
+    $("input").textbox(
+    {
+        items    : ["item1","item2"],
+        onChange : function(item)
+        {
+            alert("Changed : " + item);
+        },
+        onSelect : function(item)
+        {
+            alert("Selected : " + item);
+        }
+    });
+    
+    $("input").textbox("add","appended item");
+    
+            </pre>
+        </div>     
+
+    </body>
+
+</html>
