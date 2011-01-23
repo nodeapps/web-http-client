@@ -11,8 +11,7 @@
     "request": ">= 0.10.0",
     "node-static": ">= 0.5.3",
     "stack":">= 0.0.3",
-    "webservice":">= 0.4.0",
+    "webservice":">= 0.4.8",
   },
-  "main": "./lib/bugger",
   "engines": { "node": ">= 0.3.0" }
 }
