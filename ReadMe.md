@@ -6,7 +6,7 @@
 
 ## INSTALLATION
 
-     npm install stack webservice node-static
+     npm install stack webservice node-static resourcer
    
      git clone git://github.com/Marak/bugger.git
    
