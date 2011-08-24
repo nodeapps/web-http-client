@@ -1,17 +1,23 @@
 {
   "name": "bugger",
   "description": "open-source web based http client",
-  "version": "0.1.0",
+  "version": "0.1.0-4",
   "author": "Marak Squires <marak.squires@gmail.com>",
   "repository": {
-      "type": "git",
-      "url": "http://github.com/marak/bugger.git" 
+    "type": "git",
+    "url": "http://github.com/marak/bugger.git"
   },
   "dependencies": {
-    "request": ">= 0.10.0",
-    "node-static": ">= 0.5.3",
-    "stack":">= 0.0.3",
-    "webservice":">= 0.4.8"
+    "request": ">= 0.2.x",
+    "node-static": "0.5.x",
+    "stack": ">= 0.0.3",
+    "webservice": ">= 0.5.x"
   },
-  "engines": { "node": ">= 0.3.0" }
+  "engines": {
+    "node": ">= 0.3.0"
+  },
+  "subdomain": "bugger",
+  "scripts": {
+    "start": "server.js"
+  }
 }
