@@ -1,4 +1,4 @@
-# bugger - open-source web based http client
+# bugger -  web based http client
 
 ## ONLINE DEMO
 
@@ -17,4 +17,14 @@
 ## USAGE
 
 Once the server is started go to http://localhost:8080/  
+
+
+## Built-with
+
+- <a href="www.jquery.com">jQuery</a>
+- <a href="http://github.com/marak/webservice.js">webservice.js</a>
+- <a href="http://github.com/creationix/stack">stack</a>
+- <a href="http://github.com/cloudhead/node-static">node-static</a>
+- <a href="http://github.com/indexzero/resourcer">resourcer</a>
+- <a href="http://github.com/marak/bugger">check out the code!</a>
 

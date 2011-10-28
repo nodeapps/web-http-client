@@ -3,7 +3,7 @@ module.exports = function setup() {
   return function(request, response, next){
     request.body = "";
     request.addListener('data', function (chunk) { 
-      request.body += chunk 
+      request.body += chunk;
     });
     request.addListener('end', function () {
       next();
