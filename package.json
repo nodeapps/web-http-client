@@ -1,7 +1,7 @@
 {
   "name": "web-http-client",
-  "description": " web based http client",
-  "version": "0.1.0-6",
+  "description": "a web based http client",
+  "version": "0.1.0",
   "author": "Marak Squires <marak.squires@gmail.com>",
   "repository": {
     "type": "git",
@@ -16,7 +16,6 @@
   "engines": {
     "node": ">= 0.3.0"
   },
-  "subdomain": "web-http-client",
   "scripts": {
     "start": "./bin/server"
   }
