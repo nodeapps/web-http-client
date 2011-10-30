@@ -1,10 +1,10 @@
 // webservice middle-ware
 
 var ws = require('webservice'),
-    bugger = require('../bugger');
+    webHTTPclient = require('../web-http-client');
 
 module.exports = function setup() {
-  return ws.createHandler(bugger, {
+  return ws.createHandler(webHTTPclient, {
     bindroot:false
   });
 };

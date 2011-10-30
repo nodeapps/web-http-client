@@ -1,7 +1,7 @@
-<h1>bugger -  web based http client</h1>
+<h1>web-http-client -  web based http client</h1>
 
 <script type="text/javascript" src = "./js/jquery.js"></script>
-<script type="text/javascript" src="./js/bugger.jquery.js"></script>
+<script type="text/javascript" src="./js/webHTTPclient.js"></script>
 
 <style type="text/css">
     @import "./css/styles.css";
@@ -16,7 +16,7 @@
         // update the UI for browsers which cache certain settings
         $('input').removeAttr('disabled');
         
-        // for sending a bugger request
+        // for sending a web-http-client request
         $("#send").click(function(){
           
           // uri can't be blank
@@ -44,7 +44,7 @@
             console.log(err);
           }
           //$("input.dropdown").textbox("add",$('.textbox').val());
-          bugger.request(requestOptions, function(err, result){
+          webHTTPclient.request(requestOptions, function(err, result){
 
             $('.loader').hide();
             $('#send').removeAttr('disabled');
@@ -113,8 +113,8 @@
       </tr>\
       ');
       // populate the headers drop down
-      for(var i = 0; i<bugger.headers.length; i++){
-        $('.headers table tr:last .header_name').append('<option value="'+bugger.headers[i]+'">'+ bugger.headers[i] +'</option>');
+      for(var i = 0; i < webHTTPclient.headers.length; i++){
+        $('.headers table tr:last .header_name').append('<option value="'+webHTTPclient.headers[i]+'">'+ webHTTPclient.headers[i] +'</option>');
       }
     }
     
@@ -230,4 +230,4 @@
 <h4>Special thanks to Todd Ditchendorf for creating <a href="http://ditchnet.org/httpclient/" target="_blank">HTTP Client</a>, a native Mac OS application for making HTTP requests.  </h4>
 
 
-<a href="http://github.com/marak/bugger"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://assets0.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf?repo=&url=http%3A%2F%2Fs3.amazonaws.com%2Fgithub%2Fribbons%2Fforkme_right_red_aa0000.png&path=" alt="Fork me on GitHub"></a>
+<a href="http://github.com/marak/web-http-client"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://assets0.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf?repo=&url=http%3A%2F%2Fs3.amazonaws.com%2Fgithub%2Fribbons%2Fforkme_right_red_aa0000.png&path=" alt="Fork me on GitHub"></a>

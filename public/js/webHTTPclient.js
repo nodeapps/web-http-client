@@ -1,7 +1,7 @@
-// this is the bugger widget
+// this is the web-http-client widget
 
-var bugger = {};
-bugger.request = function(options, callback){
+var webHTTPclient = {};
+webHTTPclient.request = function(options, callback){
   
   // perform jQuery ajax request
   $.ajax({
@@ -24,7 +24,7 @@ bugger.request = function(options, callback){
 
 };
 
-bugger.headers = [
+webHTTPclient.headers = [
  "Accept",
  "Accept-Language",
  "Accept-Encoding",

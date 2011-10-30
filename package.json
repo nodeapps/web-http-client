@@ -1,11 +1,11 @@
 {
-  "name": "bugger",
+  "name": "web-http-client",
   "description": " web based http client",
   "version": "0.1.0-6",
   "author": "Marak Squires <marak.squires@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "http://github.com/marak/bugger.git"
+    "url": "http://github.com/marak/web-http-client.git"
   },
   "dependencies": {
     "request": ">= 0.2.x",
@@ -16,8 +16,8 @@
   "engines": {
     "node": ">= 0.3.0"
   },
-  "subdomain": "bugger",
+  "subdomain": "web-http-client",
   "scripts": {
-    "start": "server.js"
+    "start": "./bin/server"
   }
 }
