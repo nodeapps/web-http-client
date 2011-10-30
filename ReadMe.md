@@ -1,39 +1,10 @@
-
-
-## INSTALLATION
-
-     npm install stack webservice node-static
-   
-     git clone git://github.com/Marak/web-http-client.git
-   
-     cd web-http-client
-   
-     node server.js
-   
-## USAGE
-
-Once the server is started go to http://localhost:8080/  
+# Node Apps
+## web-http-client - a web based http client
 
 ## ONLINE DEMO
 
   [http://web-http-client.nodejitsu.com/](http://web-http-client.nodejitsu.com/)
 
-
-## Built-with
-
-- <a href="www.jquery.com">jQuery</a>
-- <a href="http://github.com/marak/webservice.js">webservice.js</a>
-- <a href="http://github.com/creationix/stack">stack</a>
-- <a href="http://github.com/cloudhead/node-static">node-static</a>
-- <a href="http://github.com/indexzero/resourcer">resourcer</a>
-- <a href="http://github.com/marak/web-http-client">check out the code!</a>
-
-
-
-
-
-# Node Apps
-## web-http-client -  web based http client
 
 # Installation
 
@@ -41,19 +12,18 @@ Once the server is started go to http://localhost:8080/
 
 *If you do not have `jitsu` installed you can install it via `npm install jitsu -g`*
 
-
 # Usage
 
-### Starting boilerplate locally
+### Starting web-http-client locally
 
-    cd express/
-    node app.js
+    cd web-http-client/
+    node bin/server
 
-*Now you can visit http://localhost:3000 to view your application*
+*Now you can visit http://localhost:8080 to view your application*
 
-### Deploy boilerplate to nodejitsu
+### Deploy web-http-client to nodejitsu
 
-    cd express/
+    cd web-http-client/
     jitsu deploy
 
 *You will now be prompted for a `subdomain` to deploy your application on*
