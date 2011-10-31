@@ -1,6 +1,8 @@
 # Node Apps
 ## web-http-client - a web based http client
 
+Ships with a visual browser based http client + node.js server-side proxy. This allows you to easily make cross-domain HTTP requests from a browser session, which is great for testing and debugging web-services.
+
 ## ONLINE DEMO
 
   [http://web-http-client.nodejitsu.com/](http://web-http-client.nodejitsu.com/)
