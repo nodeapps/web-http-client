@@ -11,6 +11,8 @@ Ships with a visual browser based http client + node.js server-side proxy. This 
 
 # Installation
 
+    mkdir myapp/
+    cd myapp/
     jitsu install web-http-client
 
 *If you do not have `jitsu` installed you can install it via `npm install jitsu -g`*
@@ -19,14 +21,12 @@ Ships with a visual browser based http client + node.js server-side proxy. This 
 
 ### Starting web-http-client locally
 
-    cd web-http-client/
     node bin/server
 
 *Now you can visit http://localhost:8080 to view your application*
 
 ### Deploy web-http-client to nodejitsu
 
-    cd web-http-client/
     jitsu deploy
 
 *You will now be prompted for a `subdomain` to deploy your application on*
