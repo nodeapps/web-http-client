@@ -5,6 +5,7 @@
 
   [http://web-http-client.nodejitsu.com/](http://web-http-client.nodejitsu.com/)
 
+![](https://github.com/nodeapps/web-http-client/raw/master/screenshots/jitsu_install.png)
 
 # Installation
 
