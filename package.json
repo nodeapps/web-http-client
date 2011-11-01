@@ -5,7 +5,7 @@
   "author": "Marak Squires <marak.squires@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "http://github.com/marak/web-http-client.git"
+    "url": "http://github.com/nodeapps/web-http-client.git"
   },
   "dependencies": {
     "request": ">= 0.2.x",
