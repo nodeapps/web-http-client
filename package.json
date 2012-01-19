@@ -1,23 +1,50 @@
 {
   "name": "web-http-client",
-  "description": "a web based http client",
   "version": "0.1.0",
   "author": "Marak Squires <marak.squires@gmail.com>",
+  "description": "a web based http client",
+  "main": "",
   "repository": {
     "type": "git",
-    "url": "http://github.com/nodeapps/web-http-client.git"
+    "url": "git://github.com/nodeapps/web-http-client.git"
   },
+  "keywords": [
+    "nodeapps",
+    "web-client",
+    "http"
+  ],
+  "homepage": "http://nodeapps.github.com/web-http-client",
+  "scripts": {
+    "start": "./bin/server"
+  },
+  "contributors": [
+    {
+      "name": "Marak Squires",
+      "email": "marak.squires@gmail.com"
+    },
+    {
+      "name": "Joshua Holbrook",
+      "email": "josh.holbrook@gmail.com"
+    }
+  ],
   "dependencies": {
     "request": ">= 0.2.x",
     "node-static": "0.5.x",
     "stack": ">= 0.0.3",
     "webservice": ">= 0.5.x"
   },
+  "devDependencies": {},
   "engines": {
     "node": ">= 0.4.x"
   },
-  "scripts": {
-    "start": "./bin/server"
+  "bugs": {
+    "url": "https://github.com/nodeapps/web-http-client/issues"
   },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/nodeapps/web-http-client/raw/master/LICENSE"
+    }
+  ],
   "analyze": false
 }
